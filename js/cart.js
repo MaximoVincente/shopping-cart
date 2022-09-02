@@ -29,7 +29,7 @@ tableBody.innerHTML = '';
 function showCart() {
 
   // DONE: Find the table body
-  let tableBody = document.querySelector('body');
+  let tableBody = document.querySelector('tbody');
   // DONE: Iterate over the items in the cart
   for (let i = 0; i < cart.items.length; i++){
  // DONE: Create a TR
@@ -41,7 +41,7 @@ function showCart() {
   tableDelete.id = i;
   tableRow.appendChild(tableDelete);
 
-  let tableQuantity = document.createElement('td');
+    let tableQuantity = document.createElement('td');
   tableQuantity.textContent = cart.items[i].quantity;
   tableRow.appendChild(tableQuantity);
 
@@ -61,6 +61,7 @@ if (event.target.classList.contains('delete')){
   cart.removeItem(parseInt(event.target.id));
   // DONE: Save the cart back to local storage
   cart.saveToLocalStorage();
+  renderCart();
   // DONE: Re-draw the cart table
   }
 }
